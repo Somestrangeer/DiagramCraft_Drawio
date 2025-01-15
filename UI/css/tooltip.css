@@ -1,0 +1,43 @@
+.label-with-help {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.help-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: help;
+    position: relative;
+}
+
+.help-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    border: 1px solid var(--accent);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.help-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+}

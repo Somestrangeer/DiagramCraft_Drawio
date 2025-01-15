@@ -1,0 +1,121 @@
+:root {
+    --primary: #131312;
+    --secondary: #ececec;
+    --accent: #8B7355;
+    --transition-duration: 0.5s;
+}
+
+:root[data-theme="light"] {
+    --primary: #F1F0FB;
+    --secondary: #2A2B2E;
+    --accent: #6D5D9B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--primary);
+    color: var(--secondary);
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-fade-up {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+*, *::before, *::after {
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                border-color var(--transition-duration) ease,
+                box-shadow var(--transition-duration) ease,
+                transform var(--transition-duration) ease;
+}
+
+.theme-toggle,
+button:active,
+input:focus,
+textarea:focus {
+    transition: none;
+}
+
+/* Добавляем задержки для последовательной анимации */
+.create-form > * {
+    animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+.examples-grid > * {
+    animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+/* Анимации при наведении */
+.nav-link,
+.submit-button,
+.download-button,
+.example-card {
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover,
+.submit-button:hover,
+.download-button:not(:disabled):hover,
+.example-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Анимация для подсказок */
+.help-icon {
+    transition: transform 0.3s ease;
+}
+
+.help-icon:hover {
+    transform: scale(1.1);
+}

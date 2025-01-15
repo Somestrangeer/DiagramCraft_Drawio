@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagramCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header animate-slide-in">
+        <nav class="nav">
+            <div class="logo animate-fade-up">DiagramCraft</div>
+            <div class="nav-links animate-fade-in">
+                <a href="#create" class="nav-link">Создать диаграмму</a>
+                <a href="#tips" class="nav-link">Подсказки</a>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="create" class="create-section animate-fade-up">
+            <div class="container">
+                <h2 class="animate-slide-in">Создайте свою диаграмму</h2>
+                <form class="create-form animate-fade-in" id="diagramForm">
+                    <div class="form-row">
+                        <div class="form-group animate-slide-in">
+                            <label for="filename">Имя файла</label>
+                            <input 
+                                type="text" 
+                                id="filename" 
+                                name="filename" 
+                                class="form-input" 
+                                required
+                            >
+                        </div>
+                        <div class="form-group animate-slide-in">
+                            <div class="label-with-help">
+                                <label for="diagramType">Тип диаграммы</label>
+                                <div class="help-icon" data-tooltip="Доступные типы диаграмм">?</div>
+                            </div>
+                            <select 
+                                id="diagramType" 
+                                name="diagramType" 
+                                class="form-select" 
+                                required
+                            >
+                                <option value="">Выберите тип</option>
+                                <option value="sequence">Диаграмма последовательности</option>
+                                <option value="flowchart">Блок-схема</option>
+                                <option value="er-diagram">ER-диаграмма</option>
+                                <option value="class">Диаграмма классов</option>
+                            </select>
+                        </div>
+                    </div>
+                    <textarea 
+                        class="prompt-input animate-fade-in" 
+                        name="prompt"
+                        placeholder="Опишите вашу диаграмму..."
+                        required
+                    ></textarea>
+                    <button type="submit" class="submit-button animate-fade-up">Создать диаграмму</button>
+                </form>
+                <div class="diagram-area animate-fade-in">
+                    <div class="diagram-content">
+                        <p>Здесь появится ваша диаграмма</p>
+                        <button id="downloadButton" class="download-button" disabled>
+                            <span class="download-icon">⭳</span>
+                            Скачать файл
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="tips-section animate-fade-up">
+            <div class="container">
+                <h2 class="animate-slide-in">Как составить эффективный промпт</h2>
+                <div class="examples-grid">
+                    <div class="example-card animate-fade-up">
+                        <span class="example-label">Пример 1</span>
+                        <p>Создай диаграмму последовательности для процесса авторизации пользователя</p>
+                        <div class="example-image">
+                            <p>Результат диаграммы</p>
+                        </div>
+                    </div>
+                    <div class="example-card animate-fade-up">
+                        <span class="example-label">Пример 2</span>
+                        <p>Построй блок-схему алгоритма сортировки массива</p>
+                        <div class="example-image">
+                            <p>Результат диаграммы</p>
+                        </div>
+                    </div>
+                    <div class="example-card animate-fade-up">
+                        <span class="example-label">Пример 3</span>
+                        <p>Нарисуй ER-диаграмму для системы управления библиотекой</p>
+                        <div class="example-image">
+                            <p>Результат диаграммы</p>
+                        </div>
+                    </div>
+                    <div class="example-card animate-fade-up">
+                        <span class="example-label">Пример 4</span>
+                        <p>Сгенерируй диаграмму классов для игры в шахматы</p>
+                        <div class="example-image">
+                            <p>Результат диаграммы</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer animate-fade-up">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>© 2025 DiagramCraft. Все права защищены.</p>
+                <p>Дипломный проект "Генератор диаграмм на основе естественного языка".</p>
+                <p>Довгулевич Александр Александрович.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
