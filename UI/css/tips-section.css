@@ -16,7 +16,7 @@
 }
 
 .example-card {
-    background-color: rgba(236, 236, 236, 0.05);
+    background-color: var(--primary);
     padding: 1.5rem;
     border: 1px solid rgba(236, 236, 236, 0.2);
     border-radius: 8px;

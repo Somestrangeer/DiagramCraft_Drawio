@@ -7,7 +7,7 @@
 .create-section {
     padding-top: 6rem;
     padding-bottom: 5rem;
-    background-color: var(--primary);
+/*    background-color: var(--primary);*/
     transition: background-color 0.3s ease;
 }
 
@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background: rgba(236, 236, 236, 0.03);
+    background: var(--primary);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
