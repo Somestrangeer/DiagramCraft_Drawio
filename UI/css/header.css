@@ -20,12 +20,19 @@
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.05em;
+    display: flex;
+    color: var(--secondary);
+}
+
+.logoText{
+  color: var(--accent);
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
+    font-size: 0.875rem;
 }
 
 .nav-link {
@@ -34,8 +41,21 @@
     transition: color 0.3s ease;
 }
 
+
+
 .nav-link:hover {
+    transform: translateY(-2px); /* Сдвиг влево при наведении */
     color: var(--accent);
+    animation: upDown 0.3s forwards; /* Анимация возвращения вправо */
+}
+
+@keyframes upDown {
+    from {
+        transform: translateY(-2px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .theme-toggle {

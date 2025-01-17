@@ -11,6 +11,10 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
+let themeNow = document.getElementById("themeToggle");
+
+let color = (themeNow.classList.contains('dark')) ? '#ffffff': '#6D5D9B';
+
 particlesJS('particles-js',
   
   {
@@ -23,7 +27,7 @@ particlesJS('particles-js',
         }
       },
       "color": {
-        "value": "#ffffff"
+        "value": color
       },
       "shape": {
         "type": "circle",
@@ -63,7 +67,7 @@ particlesJS('particles-js',
       "line_linked": {
         "enable": true,
         "distance": 150,
-        "color": "#ffffff",
+        "color": color,
         "opacity": 0.4,
         "width": 1
       },

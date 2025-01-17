@@ -104,13 +104,6 @@ textarea:focus {
     transition: transform 0.3s ease;
 }
 
-.nav-link:hover,
-.submit-button:hover,
-.download-button:not(:disabled):hover,
-.example-card:hover {
-    transform: translateY(-2px);
-}
-
 /* Анимация для подсказок */
 .help-icon {
     transition: transform 0.3s ease;
