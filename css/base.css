@@ -1,0 +1,255 @@
+:root {
+    --primary: #131312;
+    --secondary: #ececec;
+    --accent: #8B7355;
+    --hrcolor: #2A2A2A;
+    --codecolor:#212121;
+    --transition-duration: 0.5s;
+}
+
+:root[data-theme="light"] {
+    --primary: #F1F0FB;
+    --secondary: #2A2B2E;
+    --accent: #6D5D9B;
+    --hrcolor: #ccc;
+    --codecolor:#ffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--primary);
+    color: var(--secondary);
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-fade-up {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+*, *::before, *::after {
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                border-color var(--transition-duration) ease,
+                box-shadow var(--transition-duration) ease,
+                transform var(--transition-duration) ease;
+}
+
+.theme-toggle,
+button:active,
+input:focus,
+textarea:focus {
+    transition: none;
+}
+
+/* Добавляем задержки для последовательной анимации */
+.create-form > * {
+    animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+.examples-grid > * {
+    animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+/* Анимации при наведении */
+.nav-link,
+.submit-button,
+.download-button,
+.example-card {
+    transition: transform 0.3s ease;
+}
+
+/* Анимация для подсказок */
+.help-icon {
+    transition: transform 0.3s ease;
+}
+
+.help-icon:hover {
+    transform: scale(1.1);
+}
+
+.popupLayer{
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: block;
+}
+
+.popup{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 100px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary);
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;  /* Размер крестика */
+    height: 30px; /* Размер крестика */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.closeButton::before,
+    .closeButton::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 20px;
+        background: var(--secondary);
+        transition: background 0.2s ease;
+    }
+
+    .closeButton::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .closeButton::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .closeButton:hover::before,
+    .closeButton:hover::after {
+        background: var(--secondary);
+    }
+.visibleObject{
+    visibility: visible;
+}
+.hiddenObject{
+    visibility: hidden;
+}
+
+.iframeContainer
+{
+    position: relative;
+    width: -webkit-fill-available;
+    min-height: 450px;
+    border-radius: 1rem;
+    height: -webkit-fill-available;
+}
+
+.popup h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+}
+
+.example-image img
+{
+    
+    width: 580px;
+    height: 273px;
+    border-radius: 8px;
+
+}
+
+
+.loopText, .messageText, .loopText>tspan{
+    fill: var(--secondary) !important;
+}
+.messageLine0, .flowchart-link, #mermaid-1737335888969 .relation{
+    stroke: var(--secondary) !important;
+}
+hr {
+    height: 1px !important;
+    border: 0 !important;
+    border-top: 1px solid var(--hrcolor) !important;
+    width: 50% !important;
+    position: relative !important;
+    left: 25% !important;
+    margin: 0px !important;
+}
+.notification {
+    position: fixed;
+    top: -100px; /* Начальное положение за пределами экрана */
+    left: 10%;
+    transform: translateX(-50%);
+    background-color: var(--primary); /* Зеленый цвет */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 1rem;
+    border: 1px solid rgba(236, 236, 236, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-in-out; /* Плавное появление и исчезновение */
+    z-index: 1001; /* Убедитесь, что уведомление поверх других элементов */
+    width: 255px;
+    height: 60px;
+}
+
+/* Класс для показа уведомления */
+.notification.show {
+    top: 100px; /* Положение уведомления на экране */
+}
+.notification-cont{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+.notification-cont p {
+    font-size: 17px;
+    color: var(--secondary);
+}

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagramCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen" href="css/particlesStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check,hide,pinch" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="notification" id="notification">
+        <div class="notification-cont">
+            <p>Текст скопирован!</p>
+            <div class="material-symbols-outlined" style="color: var(--accent);font-size: 49px;">check</div>
+        </div>
+    </div>
+    <header class="header animate-slide-in">
+        <nav class="nav">
+            <div class="logo animate-fade-up">Diagram<p class="logoText">Craft</p></div>
+            <div class="nav-links animate-fade-in">
+                <a href="#create" class="nav-link">Создать диаграмму</a>
+                <a href="#tips" class="nav-link">Примеры</a>
+                <a href="#syntax" class="nav-link">Синтаксис</a>
+                <button id="themeToggle" class="theme-toggle dark">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="particles" id="particles-js"></div>
+        <section id="create" class="create-section animate-fade-up">
+            
+            <div class="container">
+                <h2 class="animate-slide-in">Создай свою диаграмму...</h2>
+                <div class="" id="create-section-grid">
+                    <form class="create-form animate-fade-in" id="diagramForm" method="post">
+                    <div class="form-row">
+                        <div class="form-group animate-slide-in">
+                            <div class="label-with-help">
+                                <label for="diagramType">Режим создания</label>
+                            </div>
+                            <select 
+                                id="modeType" 
+                                name="mode" 
+                                class="form-select" 
+                            >
+                                <option value="hand">Профессиональный</option>
+                                <option value="ai">Быстрый старт (ИИ)</option>
+                            </select>
+                        </div>
+                        <div class="form-group animate-slide-in">
+                            <div class="label-with-help">
+                                <label for="diagramType">Тип диаграммы</label>
+                                <div class="material-symbols-outlined grid_button" id="gridButton">hide</div>
+                            </div>
+                            <select 
+                                id="diagramType" 
+                                name="diagramType" 
+                                class="form-select" 
+                                required
+                            >
+                                <option value="">Выбери тип</option>
+                                <option value="flowchart LR">Блок-схема Горизонт</option>
+                                <option value="flowchart TD">Блок-схема Вертикаль</option>
+                                <option value="classDiagram">Диаграмма классов</option>
+                                <option value="sequenceDiagram">Диаграмма последовательнйостей</option>
+                                <option value="erDiagram">ER-Диаграмма</option>
+                            </select>
+                        </div>
+                    </div>
+                    <textarea 
+                        class="prompt-input scrollbar_style" 
+                        name="prompt"
+                        placeholder="Опиши диаграмму..."
+                        required
+                    ></textarea>
+                    <button type="submit" class="submit-button">Создать диаграмму</button>
+                </form>
+                <div class="diagram-area animate-fade-in">
+                    <div class="diagram-content" id="diagram-content">
+                        <p id="preloadeTitle">Здесь появится твоя диаграмма</p>
+                        <svg version="1.1" id="preloader2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140px" height="140px"
+                             viewBox="0 0 200 200">
+                          <g class="pre load2">
+                            <path class="pathColor" d="M124.5,57L124.5,57c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7v0c0-3.9,3.1-7,7-7h36
+                            C121.4,50,124.5,53.1,124.5,57z"/>
+                            <path class="pathColor" d="M147.7,86.9L147.7,86.9c-2.7,2.7-7.2,2.7-9.9,0l-25.5-25.5c-2.7-2.7-2.7-7.2,0-9.9l0,0
+                            c2.7-2.7,7.2-2.7,9.9,0L147.7,77C150.5,79.8,150.5,84.2,147.7,86.9z"/>
+                            <path class="pathColor" d="M143,74.5L143,74.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7l0,0c-3.9,0-7-3.1-7-7v-36
+                            C136,77.6,139.1,74.5,143,74.5z"/>
+                            <path class="pathColor" d="M148.4,112.4L148.4,112.4c2.7,2.7,2.7,7.2,0,9.9L123,147.7c-2.7,2.7-7.2,2.7-9.9,0h0c-2.7-2.7-2.7-7.2,0-9.9
+                            l25.5-25.5C141.3,109.6,145.7,109.6,148.4,112.4z"/>
+                            <path class="pathColor" d="M125.5,143L125.5,143c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7l0,0c0-3.9,3.1-7,7-7h36 C122.4,136,125.5,139.1,125.5,143z"/>
+                            <path class="pathColor" d="M52.3,113.1L52.3,113.1c2.7-2.7,7.2-2.7,9.9,0l25.5,25.5c2.7,2.7,2.7,7.2,0,9.9h0c-2.7,2.7-7.2,2.7-9.9,0
+                            L52.3,123C49.5,120.2,49.5,115.8,52.3,113.1z"/>
+                            <path class="pathColor" d="M57,75.5L57,75.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7h0c-3.9,0-7-3.1-7-7v-36C50,78.6,53.1,75.5,57,75.5z"/>
+                            <path class="pathColor" d="M86.9,52.3L86.9,52.3c2.7,2.7,2.7,7.2,0,9.9L61.5,87.6c-2.7,2.7-7.2,2.7-9.9,0l0,0c-2.7-2.7-2.7-7.2,0-9.9
+                            L77,52.3C79.8,49.5,84.2,49.5,86.9,52.3z"/>
+                          </g>
+                        </svg>
+                    </div> 
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="tips-section animate-fade-up">
+            <div class="container">
+                <h2 class="animate-slide-in">Примеры диаграмм</h2>
+                <div class="examples-container" >
+                    <div class="example-item" id="sequence">
+                        <div class="example-image">
+                            <div class="mermaid">
+
+                                sequenceDiagram
+    par Alice to Bob
+        Alice->>Bob: Go help John
+    and Alice to John
+        Alice->>John: I want this done today
+        par John to Charlie
+            John->>Charlie: Can we do this today?
+        and John to Diana
+            John->>Diana: Can you help us today?
+        end
+    end
+
+                            </div>
+                        </div>
+                        <div class="example-content">
+                            <h3 class="example-title">Диаграмма последовательностей</h3>
+                            <div class="code-container">
+                                <code class="code-block" id="sequencecode">
+    par Alice to Bob
+        Alice->>Bob: Go help John
+    and Alice to John
+        Alice->>John: I want this done today
+        par John to Charlie
+            John->>Charlie: Can we do this today?
+        and John to Diana
+            John->>Diana: Can you help us today?
+        end
+    end
+                                </code>
+                                <button class="copy-button sequence-btn" data-code="Создай диаграмму последовательности для процесса авторизации пользователя">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67157 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67157 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="example-item" id="flowchartcode">
+                        <div class="example-image" id="flowchartSvg">
+                            <!-- <img src="images/flowchart.svg"> -->
+                        </div>
+                        <div class="example-content">
+                            <h3 class="example-title">Блок-схема</h3>
+                            <div class="code-container">
+                                <code class="code-block" id="flowchart">A[Hard edge] -->|Link text| B(Round edge) <br/>B --> C{Decision}<br/>C -->|One| D[Result one] <br/>C -->|Two| E[Result two]
+                                </code>
+                                <button class="copy-button flowchart-btn"  data-code="Создай диаграмму последовательности для процесса авторизации пользователя">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67157 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67157 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="example-item" id="classDiagram">
+                        <div class="example-image" id="classDiagramSvg">
+                            <!-- <img src="images/classDiagram.svg"> -->
+                        </div>
+                        <div class="example-content">
+                            <h3 class="example-title">Диаграмма классов</h3>
+                            <div class="code-container">
+                                <code class="code-block" id="classDiagramcode">note "From Duck till Zebra"<br/>Animal <|-- Duck<br/>note for Duck "can fly can swim can dive can help in debugging"<br/>Animal <|-- Fish<br/>Animal <|-- Zebra<br/>Animal : +int age<br/>Animal : +String gender<br/>Animal: +isMammal()<br/>Animal: +mate()<br/>class Duck{<br/>    +String beakColor<br/>    +swim()<br/>    +quack()<br/>}<br/>class Fish{<br/>    -int sizeInFeet<br/>    -canEat()<br/>}<br/>class Zebra{<br/>    +bool is_wild<br/>    +run()<br/>}
+
+                                </code>
+                                <button class="copy-button classDiagram-btn"  data-code="Создай диаграмму последовательности для процесса авторизации пользователя">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67157 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67157 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="example-item" id="erDiagram">
+                        <div class="example-image" id="erDiagramSvg">
+                            <!-- <img src="images/er.svg" style="height: 498px;"> -->
+                        </div>
+                        <div class="example-content">
+                            <h3 class="example-title">ER-Диаграмма</h3>
+                            <div class="code-container">
+                                <code class="code-block" id="ercode">CAR ||--o{ NAMED-DRIVER : allows<br/>CAR {<br/>    string registrationNumber PK<br/>    string make<br/>    string model<br/>    string[] parts<br/>}<br/>PERSON ||--o{ NAMED-DRIVER : is<br/>PERSON {<br/>    string driversLicense PK "The license #"<br/>    string(99) firstName "Only 99 characters are allowed"<br/>    string lastName<br/>    string phone UK<br/>    int age<br/>}<br/>NAMED-DRIVER {<br/>    string carRegistrationNumber PK, FK<br/>    string driverLicence PK, FK<br/>}<br/>MANUFACTURER only one to zero or more CAR : makes
+
+
+                                </code>
+                                <button class="copy-button er-btn"  data-code="Создай диаграмму последовательности для процесса авторизации пользователя">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67157 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67157 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="syntax" class="syntax-section animate-fade-up">
+            <h1 class="animate-slide-in">Как составить эффективный промпт</h1>
+            <div class="container-grid">
+                <div class="card">
+                    <div class="card__content">
+                          
+                          <a class="example-title" href="#sequence">Схема последовательности</a>
+                            <p><strong>Участники:</strong></p>
+                            <ul>
+                              <li><code>participant [имя]</code> или <code>actor [имя]</code>: Объявляет участника.  <code>actor</code> отображается по-другому, чем <code>participant</code>.</li>
+                              <li><code>participant A as Alice</code>: Объявляет участника с псевдонимом (внешний вид — Alice, обращение — A).</li>
+                            </ul>
+
+                            <p><strong>Связи:</strong></p>
+                            <ul>
+                              <li><code>[участник] → [участник]</code>: Сплошная линия без стрелки</li>
+                              <li><code>[участник] -- [участник]</code>: Пунктирная линия без стрелки</li>
+                              <li><code>[участник] ->> [участник]</code>: Сплошная линия со стрелкой</li>
+                              <li><code>[участник] -->> [участник]</code>: Пунктирная линия со стрелкой</li>
+                              <li><code>[участник] -x [участник]</code>: Сплошная линия с крестом</li>
+                              <li><code>[участник] --x [участник]</code>: Пунктирная линия с крестом</li>
+                              <li><code>[участник] -) [участник]</code>: Сплошная линия с подчеркнутой стрелкой</li>
+                              <li><code>[участник] --) [участник]</code>: Пунктирная линия с подчеркнутой стрелкой</li>
+                            </ul>
+
+                            <p><strong>Текст на связи:</strong></p>
+                            <p><code>[участник] → [участник]: Текст</code></p>
+
+                            <p><strong>Контейнеры:</strong></p>
+                            <p><code>par [диаграмма] end</code> —  выделяет часть диаграммы в контейнер.</p>
+
+                            <p><strong>Автонумерация:</strong></p>
+                            <p><code>autonumber</code> — включает автоматическую нумерацию действий перед началом диаграммы.</p>
+
+                            <p><strong>Циклы:</strong></p>
+                            <p><code>loop [диаграмма] end</code> —  обозначает циклическую последовательность действий.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">                      
+                          
+                          <a class="example-title" href="#classDiagram">Диаграмма классов</a>
+                          <p><strong>Объявление классов:</strong></p>
+                            <ul>
+                              <li><code>class [имя]</code>: Объявляет класс с заданным именем.</li>
+                              <li><code>class [имя]["Визуальное имя"]</code>: Объявляет класс с заданным именем и визуальным именем.</li>
+                              <li><code>class [имя] { ... }</code>: Объявляет класс с атрибутами и методами внутри фигурных скобок.</li>
+                              <li><code>[класс 1] &lt;-- [класс 2]</code>: Объявляет класс <code>[класс 2]</code>, связанный с <code>[класс 1]</code>.</li>
+                            </ul>
+
+                            <p><strong>Атрибуты (свойства) класса:</strong></p>
+                            <ul>
+                                <li><code>[имя класса] : [видимость][dataType] [имя атрибута]</code>: Объявляет атрибут класса с указанным типом данных.</li>
+                            </ul>
+
+                            <p><strong>Методы класса:</strong></p>
+                            <ul>
+                                <li><code>[имя класса] : [видимость]method([параметры])</code>: Объявляет метод класса с заданными параметрами.</li>
+                                    <li><code>[имя класса] : [видимость]method([параметры]) [тип возвращаемого значения]</code>: Объявляет метод класса с заданными параметрами и типом возвращаемого значения.</li>
+                            </ul>
+
+                            <p><strong>Видимость:</strong></p>
+                            <ul>
+                                <li><code>+</code>:  public (публичный)</li>
+                                <li><code>-</code>: private (приватный)</li>
+                                <li><code>#</code>: protected (защищённый)</li>
+                            </ul>
+
+                            <p><strong>Пространства имён (namespaces):</strong></p>
+                            <p><code>namespace [имя] { ... }</code>:  Помещает классы и другие элементы в пространство имён.</p>
+                            <p><strong>Связи:</strong></p>
+                            <p><code>..</code>: пунктир, <code>--</code>: сплошная</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <a class="example-title" href="#erDiagram">ER-Диаграмма</a>
+                        <p>Диаграммы строятся по следующему паттерну: <br/><code>[первая сущность] [тип связи] [вторая сущность] : [описание связи]</code></p>
+                        <p><em>Пример:</em> <code>Официант ||--|{ Стол: имеет</code></p>
+
+                        <p><strong>Связи (окончания):</strong></p>
+                        <ul>
+                            <li><code>o|</code> : Ноль или один</li>
+                            <li><code>||</code> : Один и только один</li>
+                            <li><code>o{</code> : Ноль или много</li>
+                            <li><code>|{</code> : Один или много</li>
+                        </ul>
+
+                        <p>Связи можно комбинировать: <code>[тип_связи1]--[тип_связи2]</code></p>
+
+                        <p><em>Пример комбинированной связи:</em> <code>Waiter ||--|{ Table</code> означает, что один и только один официант имеет один или множество столов.</p>
+
+                        <p><strong>Сущности и атрибуты:</strong></p>
+                        <ul>
+                            <li><code>[имя сущности] { [dataType] [attributeName] ... }</code> : Определение сущности с ее атрибутами.</li>
+                        </ul>
+
+                        <p><em>Пример:</em> <code>PERSON { string name int id }</code></p>
+
+                        <p><strong>Псевдонимы (алиасы):</strong></p>
+                        <ul>
+                            <li><code>[псевдоним] [Имя сущности] { ... }</code>:  Определение сущности с псевдонимом, где [псевдоним] используется для обращения к сущности, а [Имя сущности] - для визуального отображения.
+                        </ul>
+                        <p><em>Пример:</em> <code>p[Person] { int id string name }</code></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                          
+                        <a class="example-title" href="#flowchart">Блок-схема</a>
+                        <p><strong>Узлы:</strong></p>
+
+                        <ul>
+                            <li><code>id [Текст в узле]</code>: Создает узел с заданным <code>id</code> и текстом.</li>
+                        </ul>
+
+                        <p><strong>Формы узлов:</strong></p>
+                        <ul>
+                            <li><code>id(Текст)</code> : Узел со скругленными краями.</li>
+                            <li><code>id([Текст])</code>: Узел в форме стадиона.</li>
+                            <li><code>id[[Текст]]</code>: Узел в форме подпрограммы.</li>
+                            <li><code>id[(Текст)]</code>: Узел цилиндрической формы.</li>
+                            <li><code>id((Текст))</code>: Узел в форме круга.</li>
+                            <li><code>id{Текст}</code>: Узел в форме ромба.</li>
+                            <li><code>id{{Текст}}</code>: Узел в форме шестиугольника.</li>
+                            <li><code>id(((Текст)))</code>: Узел в форме двойного круга.</li>
+                        </ul>
+
+                        <p><strong>Связи:</strong></p>
+                        <ul>
+                            <li><code>[узел1] --&gt; [узел2]</code> :  Линия со стрелкой на конце.</li>
+                            <li><code>[узел1] --&gt;|Текст| [узел2]</code> :  Линия с текстом и стрелкой на конце.</li>
+                            <li><code>[узел1] -.-> [узел2]</code>:  Пунктирная линия.</li>
+                            <li><code>[узел1] -.[Текст].-> [узел2]</code>: Пунктирная линия с текстом.</li>
+                            <li><code>[узел1] ==&gt; [узел2]</code> : Толстая линия со стрелкой на конце.</li>
+
+                        </ul>
+
+                        <p><strong>Множественные связи:</strong></p>
+
+                        <ul>
+                            <li><code>[узел] --&gt; [узел1] --&gt; [узел2] & [узел3] --&gt; [узел2]</code>:  Один узел связывается с несколькими узлами, и несколько узлов с одним (в данном примере: узел связывается с <code>[узел1]</code> и [узел2], а также [узел3] связывается с [узел2] )</li>
+                        </ul>
+                        <p><strong>Подграфы:</strong></p>
+                        <ul>
+                            <li><code>subgraph [имя подграфа] ... end</code> : Объявляет подграф. Все узлы и связи внутри subgraph ... end будут помещены в этот подграф.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer animate-fade-up">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>© 2025 DiagramCraft. Все права защищены.</p>
+                <p>Дипломный проект "Генератор диаграмм на основе естественного языка".</p>
+                <p>Довгулевич Александр Александрович.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="js/main.js"></script>
+    <script src="js/particles.json"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+           mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+            let divers = [document.getElementById('flowchartSvg'), document.getElementById('classDiagramSvg'), document.getElementById('erDiagramSvg')];
+            let svgpathes = ['images/flowchart.svg', 'images/classDiagram.svg', 'images/er.svg'];
+
+            for (let i = 0; i < divers.length; i++) 
+            {
+                if(divers[i])
+                    console.log(divers[i]);
+                fetch(svgpathes[i]).then(response => {
+                    if (!response.ok) 
+                    {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                }).then(svgText => {
+                    divers[i].innerHTML = svgText;
+                    const svgElement = divContainer.querySelector("svg");
+                    if (svgElement)
+                    {
+                        console.log("svg loaded")
+                    }
+                    else
+                    {
+                        console.log("failed to load svg")
+                    }
+                }).catch(error => console.error('Ошибка загрузки SVG:', error));
+            }
+        });
+    </script>
+    <script src="js/animation.js"></script>
+</body>
+</html>

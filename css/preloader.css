@@ -1,0 +1,310 @@
+/** 1 **/
+.load1 path:nth-of-type(1) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.15s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.15s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(2) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.3s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.3s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(3) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.45s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.45s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(4) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.6s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.6s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(5) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.75s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.75s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(6) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.9s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 0.9s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(7) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 1.05s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 1.05s infinite spinHalf;
+}
+
+.load1 path:nth-of-type(8) {
+  -webkit-animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 1.2s infinite spinHalf;
+          animation: 2s cubic-bezier(0.19, 1, 0.22, 1) 1.2s infinite spinHalf;
+}
+
+/** 2 **/
+.load2 path:nth-of-type(1),
+.load2 path:nth-of-type(5) {
+  -webkit-animation: spin_full 2s linear infinite;
+          animation: spin_full 2s linear infinite;
+}
+
+.load2 path:nth-of-type(2),
+.load2 path:nth-of-type(6) {
+  -webkit-animation: spin_full 2s linear infinite;
+          animation: spin_full 2s linear infinite;
+}
+
+.load2 path:nth-of-type(3),
+.load2 path:nth-of-type(7) {
+  -webkit-animation: spin_full 2s linear infinite;
+          animation: spin_full 2s linear infinite;
+}
+
+.load2 path:nth-of-type(4),
+.load2 path:nth-of-type(8) {
+  -webkit-animation: spin_full 2s linear infinite;
+          animation: spin_full 2s linear infinite;
+}
+
+/** 3 **/
+.load3 path:nth-of-type(1) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(2) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(3) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(4) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(5) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(6) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(7) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.load3 path:nth-of-type(8) {
+  -webkit-animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: spin_full 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+/** 4 **/
+.load4 path:nth-of-type(1) {
+  -webkit-animation: spin_single_neg 1.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(2) {
+  -webkit-animation: spin_single_neg 1.8s 0.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(3) {
+  -webkit-animation: spin_single_neg 1.8s 0.3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(4) {
+  -webkit-animation: spin_single_neg 1.8s 0.4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(5) {
+  -webkit-animation: spin_single_neg 1.8s 0.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(6) {
+  -webkit-animation: spin_single_neg 1.8s 0.6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(7) {
+  -webkit-animation: spin_single_neg 1.8s 0.7s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.7s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.load4 path:nth-of-type(8) {
+  -webkit-animation: spin_single_neg 1.8s 0.8s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+          animation: spin_single_neg 1.8s 0.8s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+/** 5 **/
+.load5 path:nth-of-type(1) {
+  -webkit-animation: spin_single 1.8s 0.1s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.1s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(2) {
+  -webkit-animation: spin_single 1.8s 0.2s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.2s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(3) {
+  -webkit-animation: spin_single 1.8s 0.3s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.3s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(4) {
+  -webkit-animation: spin_single 1.8s 0.4s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.4s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(5) {
+  -webkit-animation: spin_single 1.8s 0.5s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.5s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(6) {
+  -webkit-animation: spin_single 1.8s 0.6s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.6s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(7) {
+  -webkit-animation: spin_single 1.8s 0.7s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.7s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+.load5 path:nth-of-type(8) {
+  -webkit-animation: spin_single 1.8s 0.8s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+          animation: spin_single 1.8s 0.8s cubic-bezier(0.115, 0.97, 0.14, 1) infinite;
+}
+
+/** 6 **/
+.load6 path:nth-of-type(1) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(2) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(3) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(4) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(5) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(6) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(7) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.load6 path:nth-of-type(8) {
+  -webkit-animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+          animation: spin_single 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.pre path {
+  transform-origin: center;
+  transform-box: fill-box;
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+@-webkit-keyframes spinHalf {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinHalf {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin_full {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin_full {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin_single_neg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes spin_single_neg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+@-webkit-keyframes spin_single {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes spin_single {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.pathColor{
+  fill: var(--accent);
+}
+#preloader2{
+  display: none;
+}
